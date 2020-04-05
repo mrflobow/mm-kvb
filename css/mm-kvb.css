@@ -1,0 +1,31 @@
+#kvbstations .row {
+    display: flex;
+    font-size: 20px;
+    line-height: 25px;
+}
+
+#kvbstations .header_row {
+    display: flex;
+    font-size: 15px;
+    line-height: 25px;
+    border-bottom: 1px solid #666;
+}
+
+
+#kvbstations .lineid {
+    width: 50px;
+    text-align: center;
+}
+
+#kvbstations .direction {
+    width: 250px;
+}
+
+#kvbstations .row .direction {
+    color: #ffffff;
+}
+
+#kvbstations .waittime {
+    width: 100px;
+    text-align: center;
+}
