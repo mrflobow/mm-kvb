@@ -6,15 +6,15 @@ module.exports = NodeHelper.create({
    
     socketNotificationReceived: function (notification, payload) {
         if (notification === "KVB_STATION_REQUEST_DATA") {
-            this.request_apidata();
+            this.request_apidata(payload);
         }
     },
 
-    request_apidata: function(){
+    request_apidata: function(config){
         let self = this;
-        var url= 'http://127.0.0.1:6000/stations/254/departures/';
+        
 
-        axios.get(url)
+        axios.get(config.api_url)
         .then(function (response) {
     
             if(response.data != undefined ) self.sendSocketNotification("KVB_STATION_DATA", response.data);
@@ -30,7 +30,3 @@ module.exports = NodeHelper.create({
 
 });
 
-function isJSON(str) {
-    try { return (JSON.parse(str) && !!str); }
-    catch (e) { return false; }
-}

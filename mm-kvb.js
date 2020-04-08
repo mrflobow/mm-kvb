@@ -1,12 +1,15 @@
 Module.register("mm-kvb",{
 	// Default module config.
 	defaults: {
-        text: "Hello World!",
-        station:"Subbelrather"
+        station:"Subbelrather",
+        stationid: 254,
+        port: 6000,
+        host: "127.0.0.1"
 	},
 
     start: function() {
         Log.log(this.name + ' is started!');
+        this.config.api_url = 'http://'+this.config.host+':'+this.config.port+'/stations/'+this.config.stationid+'/departures/';
         this.sendSocketNotification("KVB_STATION_REQUEST_DATA", this.config);
     },
 	// Override dom generator.
